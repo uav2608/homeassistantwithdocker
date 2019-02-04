@@ -5,4 +5,4 @@ RUN npm install node-red-contrib-home-assistant-websocket
 
 EXPOSE 1880
 
-
+CMD ["npm", "start", "node-red"]

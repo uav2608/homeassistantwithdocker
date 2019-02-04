@@ -1,0 +1,23 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant
+    volumes:
+      - /home/devopsdebian0119/homeassistant/ha:/config #directory with
+                                                        #configuration files
+      - /etc/localtime:/etc/localtime:ro
+#     devices:
+#       - /dev/ttyUSB0:/dev/ttyUSB0 # to map Zigbee device into container
+    restart: always
+    network_mode: host
+
+  nodered:
+    container_name: node-red
+    build: . # to crate image from Dockerfile
+#      volumes:
+#        -
+    ports:
+      - "1880:1880"
+    restart: always
+    network_mode: host
