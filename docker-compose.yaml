@@ -4,13 +4,15 @@ services:
     container_name: home-assistant
     image: homeassistant/home-assistant
     volumes:
-      - /home/devopsdebian0119/homeassistant/ha:/config #directory with
+      - /home/devopsdebian0119/homeassistant/config:/config #directory with
                                                         #configuration files
       - /etc/localtime:/etc/localtime:ro
-#     devices:
+    ports:
+      - "8123:8123"
+#   devices:
 #       - /dev/ttyUSB0:/dev/ttyUSB0 # to map Zigbee device into container
     restart: always
-    network_mode: host
+#    network_mode: host
 
   nodered:
     container_name: node-red
@@ -20,4 +22,22 @@ services:
     ports:
       - "1880:1880"
     restart: always
-    network_mode: host
+
+  portainer:
+    image: portainer/portainer
+    restart: always
+    container_name: "portainer-app"
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/portainer/data:/data
+  
+  watchtower:
+    image: v2tec/watchtower
+    container_name: "portainer-watchtower"
+    command: --interval 30 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+
