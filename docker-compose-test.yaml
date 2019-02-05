@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+   sslproxy:
+     image: danieldent/nginx-ssl-proxy
+     restart: always
+     environment:
+       SERVERNAME: nextcloud.sample.com
+     ports:
+       - "80:80"
+       - "443:443"
+     volumes:
+       - /media/dataprime/nginx-conf:/etc/nginx/conf.d
+       - /media/dataprime/letsencrypt-nextcloud:/etc/letsencrypt
+
+   mysql:
+     image: mysql
+     volumes:
+       - /var/mysql:/var/lib/mysql
+     environment:
+       - MYSQL_ROOT_PASSWORD = 123
+       - MYSQL_DATABASE = nextcloud
+       - MYSQL_USER = nextcloud
+       - MYSQL_PASSWORD = 123
+
+   nextcloud:
+     image: wonderfall/nextcloud
+     environment:
+       - UID = 1000
+     depends_on:
+       - mysql
+     volumes:
+     ports:
+       - "8888:8888"
+
+   plex:
+     image: timhaak/plex
+     volumes:
+     ports:
+       - "32400:32400"
+     network_node: "host"
+
+

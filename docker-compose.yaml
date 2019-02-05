@@ -4,7 +4,7 @@ services:
     container_name: home-assistant
     image: homeassistant/home-assistant
     volumes:
-      - /home/devopsdebian0119/homeassistant/config:/config #directory with
+      - /home/devopsdebian0119/homeassistant/uavha:/config #directory with
                                                         #configuration files
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -17,11 +17,12 @@ services:
   nodered:
     container_name: node-red
     build: . # to crate image from Dockerfile
-#      volumes:
-#        -
+    volumes:
+      - /home/devopsdebian0119/homeassistant/uavnodered:/node-red
     ports:
       - "1880:1880"
     restart: always
+    depends_on: homeassistant
 
   portainer:
     image: portainer/portainer
@@ -32,12 +33,35 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/portainer/data:/data
-  
+
   watchtower:
     image: v2tec/watchtower
     container_name: "portainer-watchtower"
-    command: --interval 30 
+    command: --interval 30
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /root/.docker/config.json:/config.json
+    restart: always
 
+  caddyserver:
+    image: blob/caddy
+    container_name: "uav-caddyserver"
+    restart: always
+    volumes:
+      - /home/devopsdebian0119/homeassistant/uavcaddy:/etc/
+    ports:
+      - "1000:2015"
+    depends_on: homeassistant
+
+  mosquitto:
+    image: elipse/mosquitto
+    container_name: "mosquitto"
+    restart: on-failure
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - /home/devopsdebian0119/homeassistant/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - /home/devopsdebian0119/homeassistant/mosquitto/data:/mosquitto/data
+      - /home/devopsdebian0119/homeassistant/mosquitto/log:/mosquitto/log
+    depends_on: homeassistant

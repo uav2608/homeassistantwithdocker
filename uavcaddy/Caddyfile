@@ -1,0 +1,8 @@
+0.0.0.0:80
+
+192.168.56.103:8123 {
+    proxy / localhost:8123 {
+        websocket
+        transparent
+    }
+}
