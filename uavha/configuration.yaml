@@ -17,7 +17,9 @@ homeassistant:
 introduction:
 
 # Enables the frontend
-frontend:
+frontend: 
+
+panel_iframe: !include panel_iframe.yaml
 
 # Enables configuration UI
 config:
@@ -68,3 +70,11 @@ cloud:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+
+logger:
+
+#influxdb:
+#  host: localhost
+#  include:
+#    domain:
+#      - sensor

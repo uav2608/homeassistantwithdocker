@@ -1,0 +1,12 @@
+{
+    "data": {
+        "users": [
+            {
+                "password": "JDJiJDEyJFR1WlRCa2xxTXlTSmVVaG5HOUdlVXU1MDV0NUgxTnZtYU9aQlkxMU9tSGdsbXZYM0VmOUxD",
+                "username": "uav-home-new"
+            }
+        ]
+    },
+    "key": "auth_provider.homeassistant",
+    "version": 1
+}

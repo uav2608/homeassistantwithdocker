@@ -1,7 +1,8 @@
-version: '3'
+version: '3.3'
 services:
   homeassistant:
     container_name: home-assistant
+    hostname: homeassistant
     image: homeassistant/home-assistant
     volumes:
       - /home/devopsdebian0119/homeassistant/uavha:/config #directory with
@@ -12,56 +13,134 @@ services:
 #   devices:
 #       - /dev/ttyUSB0:/dev/ttyUSB0 # to map Zigbee device into container
     restart: always
-#    network_mode: host
+    networks:
+      - uavhanet
 
   nodered:
     container_name: node-red
-    build: . # to crate image from Dockerfile
+    image: nodered/node-red-docker:slim-v8
+#   build: . # to crate image from Dockerfile
+    hostname: nodered
+    command: ["npm", "install", "node-red-contrib-home-assistant-websocket"]
     volumes:
-      - /home/devopsdebian0119/homeassistant/uavnodered:/node-red
-    ports:
-      - "1880:1880"
+      - /home/devopsdebian0119/homeassistant/uavnodered:/data
+    expose:
+      - "1880"
+#    ports:
+#      - "1880:1880"
     restart: always
-    depends_on: homeassistant
+#    depends_on: homeassistant
+    networks:
+      - uavhanet
 
   portainer:
     image: portainer/portainer
     restart: always
     container_name: "portainer-app"
+    hostname: portainer
     ports:
       - "9000:9000"
+    expose:
+      - "9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/portainer/data:/data
+    networks:
+      - uavhanet
 
   watchtower:
     image: v2tec/watchtower
     container_name: "portainer-watchtower"
-    command: --interval 30
+    hostname: watchtower
+    command: ["--interval 30", "--cleanup"]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /root/.docker/config.json:/config.json
     restart: always
+    networks:
+      - uavhanet
 
   caddyserver:
     image: blob/caddy
+    hostname: caddyserver
     container_name: "uav-caddyserver"
     restart: always
     volumes:
       - /home/devopsdebian0119/homeassistant/uavcaddy:/etc/
     ports:
       - "1000:2015"
-    depends_on: homeassistant
+    networks:
+      - uavhanet
+#    depends_on: homeassistant
 
   mosquitto:
-    image: elipse/mosquitto
+    image: eclipse-mosquitto
+    hostname: mosquitto
     container_name: "mosquitto"
     restart: on-failure
+    expose:
+      - "1883"
     ports:
       - "1883:1883"
       - "9001:9001"
     volumes:
       - /home/devopsdebian0119/homeassistant/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - /home/devopsdebian0119/homeassistant/mosquitto/data:/mosquitto/data
-      - /home/devopsdebian0119/homeassistant/mosquitto/log:/mosquitto/log
-    depends_on: homeassistant
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_data:/mosquitto/log
+    networks:
+      - uavhanet
+#    depends_on: homeassistant
+
+  influxdb:
+    image: influxdb
+    hostname: influxdb
+    container_name: "influxdb"
+    restart: on-failure
+    expose:
+      - "8086"
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+    networks:
+      - uavhanet
+#    configs:
+#      - /etc/influxdb/influxdb.conf
+
+  grafana:
+    image: grafana/grafana
+    container_name: "grafana"
+    hostname: grafana
+    restart: always
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    networks:
+      - uavhanet
+
+  tasmoadmin:
+    image: raymondmm/tasmoadmin
+    container_name: "tasmoadmin"
+    hostname: tasmoadmin
+    restart: always
+    expose:
+      - "80"
+#    ports:
+#      - "9999:80"
+    volumes:
+      - tasmoadmin_data:/data
+    networks:
+      - uavhanet
+#    depends_on: homeassistant
+
+
+volumes:
+  portainer_data:
+  mosquitto_data:
+  tasmoadmin_data:
+  influxdb_data:
+
+networks:
+  uavhanet:
+    driver: overlay
