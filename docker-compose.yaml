@@ -126,8 +126,8 @@ services:
     restart: always
     expose:
       - "80"
-#    ports:
-#      - "9999:80"
+    ports:
+      - "9999:80"
     volumes:
       - tasmoadmin_data:/data
     networks:
