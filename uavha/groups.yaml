@@ -1,0 +1,132 @@
+  OfficeRoom_lights:
+    name: Office room lights
+    entities:
+      - light.office_light_1
+      - light.office_light_2
+      - light.office_light_3
+      - light.office_light_4
+
+  BedRoom_lights:
+    name: Bedroom lights
+    entities:
+
+  ShahzoRoom_lights:
+    name: Shahzo lights
+    entities:
+      - light.shahzo_light_1
+      - light.shahzo_light_2      
+      - light.shahzo_light_3
+      - light.shahzo_light_4
+
+  Entrance_lights:
+    name: Entrance lights
+    entities:
+      - light.entrance_light_1
+      - light.entrance_light_2
+
+  LivingRoom_lights:
+    name: Living room lights
+    entities:
+ 
+  OfficeRoom_plugs:
+    name: Office room plus
+    entities:
+
+  BedRoom_plugs:
+    name: Bedroom plugs
+    entities:
+
+  ShahzoRoom_plugs:
+    name: Shahzo plugs
+    entities:
+
+  Entrance_plugs:
+    name: Entrance plugs
+    entities:
+
+  LivingRoom_plugs:
+    name: Living room power sockets
+    entities:
+      - switch.smart_socket_3
+      - switch.living_room_power_strip_1
+
+  OfficeRoom_cameras:
+    name: Office room cameras
+    entities:
+  BedRoom_cameras:
+    name: Bedroom cameras
+    entities:
+  ShahzoRoom_cameras:
+    name: Shahzo cameras
+    entities:
+
+  Entrance_cameras:
+    name: Entrance cameras
+    entities:
+
+  LivingRoom_camaras:
+    name: Living room cameras
+    entities:
+
+  OfficeRoom_motions_humidity:
+    name: Office room motion and humidity sensors
+    entities:
+  BedRoom_motion_humidity:
+    name: Bedroom motion and humidity sensors
+    entities:
+  ShahzoRoom_motion_humidity:
+    name: Shahzo motion and humidity sensors
+    entities:
+  Entrance_motion_humidity:
+    name: Entrance motion and humidity sensors
+    entities:
+  LivingRoom_motion_humiditys:
+    name: Living room motion and humidity sensors
+    entities:
+
+  Weather_monday:
+    name: Monday weather
+    entities:
+     
+  Weather_view:
+    name: Weather
+    view: yes
+    entities:
+      - weather.dark_sky
+
+  MyOffice_view:
+    name: My Office
+    view: yes
+    entities:
+      - light.office_light_1
+      - light.office_light_2
+      - light.office_light_3
+      - light.office_light_4
+
+  BedRoom_view:
+    name: Bedroom
+    view: yes
+    entities:
+
+  ShahzoRoom_view:
+    name: Shahzo Room
+    view: yes
+    entities:
+      - light.shahzo_light_1
+      - light.shahzo_light_2
+      - light.shahzo_light_3
+      - light.shahzo_light_4
+
+  Entrance_view:
+    name: Entrance
+    view: yes
+    entities:
+      - light.entrance_light_1
+      - light.entrance_light_2
+
+  LivingRoom_view:
+    name: Living room
+    view: yes
+    entities:
+      - switch.smart_socket_3
+      - switch.living_room_power_strip_1
