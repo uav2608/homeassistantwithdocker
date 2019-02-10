@@ -1,8 +1,21 @@
-0.0.0.0:80
+#uav-ha.ddns.net {
+#   log stdout
+#   errors error.log
+#   proxy / 192.168.56.103:8123 {
+#      transparent
+#      websocket
+#   } 
+#   gzip 
+#   tls uav2608@gmail.com
+#}
 
-192.168.56.103:8123 {
-    proxy / localhost:8123 {
-        websocket
-        transparent
-    }
+uav-ha.duckdns.org:8121 {
+   log stdout
+   errors error.log
+   proxy / 192.168.1.248:8121 {
+       transparent
+       websocket
+   }
+   gzip
+   tls uav2608@gmail.com
 }

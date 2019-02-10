@@ -1,0 +1,125 @@
+{
+    "data": {
+        "credentials": [
+            {
+                "auth_provider_id": null,
+                "auth_provider_type": "homeassistant",
+                "data": {
+                    "username": "uav-home-new"
+                },
+                "id": "a5fa1e1ddbba499e8d612d580a41dd6e",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            }
+        ],
+        "groups": [
+            {
+                "id": "system-admin",
+                "name": "Administrators"
+            },
+            {
+                "id": "system-read-only",
+                "name": "Read Only"
+            }
+        ],
+        "refresh_tokens": [
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://192.168.56.103:8123/",
+                "client_name": null,
+                "created_at": "2019-02-05T20:31:02.149287+00:00",
+                "id": "b80908cd7b1f4ea7a445f7b319a3371e",
+                "jwt_key": "c93f664071ab3230c97881bee45ce95a2bf4ab570edb21b336c6578bb1d25e60a6c03028fcfb759530b87d08ea22221eda735e63b769d36f84823771d3867d14",
+                "last_used_at": "2019-02-07T11:12:23.314337+00:00",
+                "last_used_ip": "192.168.56.1",
+                "token": "deebbfdf9cb210b9fce64d9acca16de8149a199484bfe9a95f56f0ec8acf9cda927772314fbef51225496700b7c344da18c84e4e581c4c3766367afe5ce30e75",
+                "token_type": "normal",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://192.168.56.103:8123/",
+                "client_name": null,
+                "created_at": "2019-02-07T18:16:43.927572+00:00",
+                "id": "a4bfc789cb7242f3acf9f4607eb2dbbe",
+                "jwt_key": "2607597b50cf2fba567951b5b40c4374202b88c4fc2500926f2fd263d3c21e53ebe3c6abb9d3f2204cc99738095c11eeb7eb4120b3227ea1c3a8907c9ad2920f",
+                "last_used_at": "2019-02-08T02:11:30.632274+00:00",
+                "last_used_ip": "192.168.56.1",
+                "token": "0cbbf2a20d3b316239cd72e801f752a6badac082a6bb07f3f815b10c17a566823209f513b43029e38a33311a9cbbba5ed117d78793c5ac4d39344f237c306ccc",
+                "token_type": "normal",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://192.168.56.103:8123/",
+                "client_name": null,
+                "created_at": "2019-02-08T05:19:41.569952+00:00",
+                "id": "25d30814177843de95dc4218c04cde4b",
+                "jwt_key": "4ca99ea5508ba95b28e1853c5f9edad939fb3aa8d1867221213417d37f165220357b119529033afae801d9b21d179162e1d9146a10715caecdd9eaf1bf775534",
+                "last_used_at": "2019-02-08T18:53:44.410970+00:00",
+                "last_used_ip": "192.168.56.1",
+                "token": "a73f66e8388c5af52e964e95fa845b9d7d9bae3dd5ed9e2ce270449dd223f4f16f2ce47631ea18cf65a3d6b00de477730fc7a1a1290ecccc28a3eb85c9d450ac",
+                "token_type": "normal",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://192.168.56.103:8121/",
+                "client_name": null,
+                "created_at": "2019-02-08T20:21:32.495301+00:00",
+                "id": "bc46884ab15448f887a5d10b83c7a9be",
+                "jwt_key": "d271af22bf707f2505d297120de963be6ac4b29e091c6ff372e6919c156c5a42c7b3af300c3f5179023ce7f38a6fbf8b9bb66c682d817e37f8e57d21b74bfd15",
+                "last_used_at": "2019-02-08T20:21:32.495488+00:00",
+                "last_used_ip": "192.168.56.1",
+                "token": "3fb9fa64b949eb708595aaccf90a508fafe1483fe1c6e5865266ec18ed8f42fae48ac92da3a0e81f59ee6990a5ae14790ee0996c5649f111508a019e5c8718e8",
+                "token_type": "normal",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://192.168.1.248:8121/",
+                "client_name": null,
+                "created_at": "2019-02-08T21:01:40.480100+00:00",
+                "id": "da5ea7b91ca84d2e80499c8ddd2a5b4f",
+                "jwt_key": "7dce8cdbec75a8c9cb793005aa23fa9fdf8c09d60573416127e617e46bb8699c7a9a26f9a260645cf612ef515109d237449df4f6ab96be35c1e6830627a812dd",
+                "last_used_at": "2019-02-08T21:01:40.480339+00:00",
+                "last_used_ip": "192.168.1.227",
+                "token": "06e4fd68dfb76d28da04f2f9e468ade8af02ca52a9d0b3383af609de27dcc03750e778ebc99c7124759facfa0d241c2f1340ef3f649b7f85817bed8cce4b3c9f",
+                "token_type": "normal",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://uav-ha.duckdns.org:8121/",
+                "client_name": null,
+                "created_at": "2019-02-08T21:17:54.373145+00:00",
+                "id": "beed9429797e4ba9bb3e2f64b81cb0d0",
+                "jwt_key": "19040b0452fa744c0b147ba6702e7d678474d0009e4c8da899281cabd18b75eb6d990d3875dc9fc791a424981a95599be6256e1a10c4fb535ed2985c0e0cf428",
+                "last_used_at": "2019-02-08T21:17:54.373356+00:00",
+                "last_used_ip": "178.197.224.99",
+                "token": "7356aa59c28ebd9dd9d459586cf4a0a363ab0994f35f31819e43334efb7c1a5292b2ed18cac6c9b53d5d0ed355439ed322589405d7c39434dd73f9b519551ded",
+                "token_type": "normal",
+                "user_id": "4c4043e6808a4d53aaa7bf8c675a83b3"
+            }
+        ],
+        "users": [
+            {
+                "group_ids": [
+                    "system-admin"
+                ],
+                "id": "4c4043e6808a4d53aaa7bf8c675a83b3",
+                "is_active": true,
+                "is_owner": true,
+                "name": "uav-home-new",
+                "system_generated": false
+            }
+        ]
+    },
+    "key": "auth",
+    "version": 1
+}

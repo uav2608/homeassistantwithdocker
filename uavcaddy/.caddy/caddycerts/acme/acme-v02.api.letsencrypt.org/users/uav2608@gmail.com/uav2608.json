@@ -1,0 +1,12 @@
+{
+	"Email": "uav2608@gmail.com",
+	"Registration": {
+		"body": {
+			"status": "valid",
+			"contact": [
+				"mailto:uav2608@gmail.com"
+			]
+		},
+		"uri": "https://acme-v02.api.letsencrypt.org/acme/acct/51102021"
+	}
+}

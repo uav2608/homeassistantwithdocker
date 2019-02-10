@@ -1,7 +1,7 @@
 homeassistant:
   # Name of the location where Home Assistant is running
   name: !secret home_name
-  # Location required to calculate the time the sun rises and sets 
+  # Location required to calculate the time the sun rises and sets
   # https://www.mapcoordinates.net/en
   latitude: !secret latitude
   longitude: !secret longitude
@@ -19,7 +19,7 @@ homeassistant:
 introduction:
 
 # Enables the frontend
-frontend: 
+frontend:
 
 panel_iframe: !include panel_iframe.yaml
 
@@ -27,9 +27,13 @@ panel_iframe: !include panel_iframe.yaml
 config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
+http:
+  server_port: 8121
+  base_url: !secret base_url
+#  api_password: !secret hass_pass
+#  ip_ban_enabled: true
+#  login_attempts_threshold: 5
+  trusted_networks: !secret trusted_networks
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -83,3 +87,7 @@ logger:
 #  mode: yaml
 
 weather: !include_dir_merge_list components/
+
+duckdns:
+  domain: uav-ha
+  access_token: !secret duckdns_token

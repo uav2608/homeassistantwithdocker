@@ -9,7 +9,7 @@ services:
                                                         #configuration files
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "8123:8123"
+      - "8121:8121"
 #   devices:
 #       - /dev/ttyUSB0:/dev/ttyUSB0 # to map Zigbee device into container
     restart: always
@@ -61,14 +61,25 @@ services:
       - uavhanet
 
   caddyserver:
-    image: blob/caddy
+    image: abiosoft/caddy
     hostname: caddyserver
     container_name: "uav-caddyserver"
     restart: always
     volumes:
-      - /home/devopsdebian0119/homeassistant/uavcaddy:/etc/
+      - /home/devopsdebian0119/homeassistant/uavcaddy/Caddyfile:/etc/Caddyfile
+      - /home/devopsdebian0119/homeassistant/uavcaddy/.caddy:/root/.caddy  #to save Let's Encrypt certificates
+      - /home/devopsdebian0119/homeassistant/uavcaddy/.caddy/caddycerts:/etc/caddycerts  #to save self generated certificates
     ports:
-      - "1000:2015"
+      - "2015:2015"
+#      - "80:80"
+      - "443:443"
+#    expose:
+#      - 80
+#      - 443
+    environment:
+      - CADDYPATH=/etc/caddycerts
+      - ACME_AGREE=true
+        #    command: ["caddy"]
     networks:
       - uavhanet
 #    depends_on: homeassistant
